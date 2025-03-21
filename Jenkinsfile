@@ -2,17 +2,17 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "techtalkjervin/social-app"
+        DOCKER_IMAGE = "elango7666/social-app"
         DOCKER_TAG = "latest"
-        DOCKER_CREDENTIALS_ID = "docker-cred"
-        GITHUB_CREDENTIALS_ID = "github-credentials"
-        KUBECONFIG = "/var/lib/jenkins/.kube/config"
+        DOCKER_CREDENTIALS_ID = "docker-hub-creds"
+        GITHUB_CREDENTIALS_ID = "github"
+        KUBECONFIG = "/var/lib/elango/.kube/config"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/Jervinjeno/spring-framework.git', branch: 'main'
+                git credentialsId: GITHUB_CREDENTIALS_ID, url: 'https://github.com/elangovand7666/Task5.git', branch: 'main'
             }
         }
 
